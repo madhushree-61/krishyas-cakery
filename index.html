@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krishya's Cakery — Karur | Freshly Baked Brownies &amp; More</title>
+<meta name="description" content="Freshly baked brownies, blondies, cookies, tea cakes and more from Krishya's Cakery, Karur. Order online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">🧁</span>
+      <div class="brand-text">
+        <h1>Krishya's <em>Cakery</em></h1>
+        <p>Karur &nbsp;•&nbsp; Freshly Baked &nbsp;•&nbsp; Eggless options available</p>
+      </div>
+    </div>
+    <button class="cart-btn" id="cartToggle" aria-label="Open cart">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+  <nav class="category-nav" id="categoryNav" aria-label="Menu categories"></nav>
+</header>
+
+<!-- ===== MENU ===== -->
+<main id="menu"></main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <p class="footer-line">Thank you for supporting small business ♡</p>
+  <div class="footer-contact">
+    <a href="https://wa.me/918248876620" target="_blank" rel="noopener">WhatsApp: 8248876620</a>
+    <a href="https://instagram.com/krishyas_cakery" target="_blank" rel="noopener">@krishyas_cakery</a>
+  </div>
+</footer>
+
+<!-- ===== CART DRAWER ===== -->
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-drawer-header">
+    <h2>Your Cart</h2>
+    <button id="cartClose" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-summary">
+    <div class="cart-total-row"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+    <button class="btn-primary" id="checkoutBtn" disabled>Proceed to Checkout</button>
+  </div>
+</aside>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="modal" id="checkoutModal" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" id="checkoutClose" aria-label="Close">&times;</button>
+
+    <!-- Step 1: Details -->
+    <div class="modal-step" id="stepDetails">
+      <h2>Delivery Details</h2>
+      <form id="detailsForm">
+        <label>Full name
+          <input type="text" name="name" required placeholder="Your name">
+        </label>
+        <label>Contact number
+          <input type="tel" name="phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+        </label>
+        <label>Delivery address
+          <textarea name="address" required placeholder="House/flat no., street, area, Karur"></textarea>
+        </label>
+        <div class="order-mini-summary" id="orderMiniSummary"></div>
+        <button type="submit" class="btn-primary">Continue to Payment</button>
+      </form>
+    </div>
+
+    <!-- Step 2: Payment -->
+    <div class="modal-step" id="stepPayment" hidden>
+      <h2>Payment</h2>
+      <p class="modal-sub">Online payment only</p>
+      <div class="pay-options">
+        <label class="pay-option">
+          <input type="radio" name="payMethod" value="UPI" checked>
+          <span>UPI (GPay / PhonePe / Paytm)</span>
+        </label>
+        <label class="pay-option">
+          <input type="radio" name="payMethod" value="Card">
+          <span>Debit / Credit Card</span>
+        </label>
+      </div>
+      <div class="pay-total-row"><span>Amount to pay</span><strong id="payTotal">₹0</strong></div>
+      <button class="btn-primary" id="payNowBtn">Pay Now</button>
+      <p class="pay-note">This is a demo checkout for a course project — no real payment is processed. See README for how to connect a live gateway like Razorpay.</p>
+      <button class="btn-link" id="backToDetails">&larr; Back</button>
+    </div>
+
+    <!-- Step 3: Confirmation -->
+    <div class="modal-step" id="stepConfirm" hidden>
+      <div class="confirm-icon">✓</div>
+      <h2>Order Confirmed!</h2>
+      <p class="modal-sub">Order <strong id="orderId"></strong></p>
+      <div class="order-mini-summary" id="confirmSummary"></div>
+      <a class="btn-primary" id="whatsappConfirm" target="_blank" rel="noopener">Send order to WhatsApp</a>
+      <button class="btn-link" id="closeConfirm">Back to menu</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

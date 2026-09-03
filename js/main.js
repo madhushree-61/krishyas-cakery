@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="chip-row">
       ${PREORDER_SPECIALS.map((s) => `<span class="chip">${s}</span>`).join("")}
     </div>
-    <a class="btn-secondary" href="https://wa.me/918248876620" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+    <a class="btn-secondary" href="https://wa.me/919740875294" target="_blank" rel="noopener">Enquire on WhatsApp</a>
   `;
   menuRoot.appendChild(specials);
 
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lines.map((l) => `- ${l.name} x${l.qty} = ${money(l.lineTotal)}`).join("\n") +
         `\nTotal: ${money(total)}\nPaid via: ${method}\n\nName: ${orderDetails.name}\nPhone: ${orderDetails.phone}\nAddress: ${orderDetails.address}`
     );
-    document.getElementById("whatsappConfirm").href = `https://wa.me/918248876620?text=${waText}`;
+    document.getElementById("whatsappConfirm").href = `https://wa.me/919740875294?text=${waText}`;
 
     stepPayment.hidden = true;
     stepConfirm.hidden = false;

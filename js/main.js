@@ -182,7 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
     orderDetails = {
       name: fd.get("name").trim(),
       phone: fd.get("phone").trim(),
-      address: fd.get("address").trim()
+      address: fd.get("address").trim(),
+      specifications: fd.get("specifications").trim()
     };
     payTotal.textContent = money(Cart.getTotal());
     stepDetails.hidden = true;
@@ -203,10 +204,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("orderId").textContent = `#${orderId}`;
     document.getElementById("confirmSummary").innerHTML = summaryHTML();
 
+    const confirmSpecs = document.getElementById("confirmSpecs");
+    if (orderDetails.specifications) {
+      confirmSpecs.hidden = false;
+      confirmSpecs.textContent = `Note: ${orderDetails.specifications}`;
+    } else {
+      confirmSpecs.hidden = true;
+      confirmSpecs.textContent = "";
+    }
+
     const waText = encodeURIComponent(
       `Hi Krishya's Cakery! Order #${orderId}\n` +
         lines.map((l) => `- ${l.name} x${l.qty} = ${money(l.lineTotal)}`).join("\n") +
-        `\nTotal: ${money(total)}\nPaid via: ${method}\n\nName: ${orderDetails.name}\nPhone: ${orderDetails.phone}\nAddress: ${orderDetails.address}`
+        `\nTotal: ${money(total)}\nPaid via: ${method}\n\nName: ${orderDetails.name}\nPhone: ${orderDetails.phone}\nAddress: ${orderDetails.address}` +
+        (orderDetails.specifications ? `\nSpecifications: ${orderDetails.specifications}` : "")
     );
     document.getElementById("whatsappConfirm").href = `https://wa.me/918248876620?text=${waText}`;
 

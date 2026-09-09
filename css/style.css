@@ -349,6 +349,7 @@ main#menu {
 
 #detailsForm { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
 #detailsForm label { font-size: 13px; font-weight: 600; color: var(--cocoa-soft); display: flex; flex-direction: column; gap: 6px; }
+.label-optional { font-weight: 400; font-style: italic; text-transform: none; }
 #detailsForm input, #detailsForm textarea {
   font-family: var(--font-body);
   font-size: 14.5px;
@@ -375,6 +376,16 @@ main#menu {
 
 .pay-total-row { display: flex; justify-content: space-between; font-size: 16px; margin: 6px 0 18px; }
 .pay-note { font-size: 12px; color: var(--cocoa-soft); text-align: center; margin: 14px 0 0; }
+
+.confirm-specs {
+  background: var(--cream-2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--cocoa-soft);
+  margin: -4px 0 4px;
+}
 
 .confirm-icon {
   width: 52px; height: 52px; border-radius: 50%;

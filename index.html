@@ -73,6 +73,9 @@
         <label>Delivery address
           <textarea name="address" required placeholder="House/flat no., street, area, Karur"></textarea>
         </label>
+        <label>Order specifications <span class="label-optional">(optional)</span>
+          <textarea name="specifications" placeholder="e.g. less sweet, no nuts, write 'Happy Birthday' on it, deliver after 5pm..."></textarea>
+        </label>
         <div class="order-mini-summary" id="orderMiniSummary"></div>
         <button type="submit" class="btn-primary">Continue to Payment</button>
       </form>
@@ -104,6 +107,7 @@
       <h2>Order Confirmed!</h2>
       <p class="modal-sub">Order <strong id="orderId"></strong></p>
       <div class="order-mini-summary" id="confirmSummary"></div>
+      <p class="confirm-specs" id="confirmSpecs" hidden></p>
       <a class="btn-primary" id="whatsappConfirm" target="_blank" rel="noopener">Send order to WhatsApp</a>
       <button class="btn-link" id="closeConfirm">Back to menu</button>
     </div>
